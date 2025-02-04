@@ -1,8 +1,10 @@
 package com.springbootweek3hw.collegemanagementsystem.Services;
 
 import com.springbootweek3hw.collegemanagementsystem.Entities.AdmissionRecordEntity;
+import com.springbootweek3hw.collegemanagementsystem.Entities.ProfessorEntity;
 import com.springbootweek3hw.collegemanagementsystem.Entities.StudentEntity;
 import com.springbootweek3hw.collegemanagementsystem.Repositories.AdmissionRecordRepository;
+import com.springbootweek3hw.collegemanagementsystem.Repositories.ProfessorRepository;
 import com.springbootweek3hw.collegemanagementsystem.Repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,9 @@ public class StudentService {
 
     @Autowired
     private AdmissionRecordRepository admissionRecordRepository;
+
+    @Autowired
+    private ProfessorRepository professorRepository;
     public StudentEntity saveStudent(StudentEntity studentEntity) {
        return studentRepository.save(studentEntity);
     }
@@ -39,4 +44,5 @@ public class StudentService {
                         }))).orElse(null);
 
     }
-}
+
+    }

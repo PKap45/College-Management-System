@@ -32,6 +32,4 @@ public class StudentController {
         return studentService.assignedAdmissionRecordToStudent(studentId,admissionRecordId);
     }
 
-
-
 }
