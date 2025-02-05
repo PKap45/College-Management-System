@@ -25,6 +25,10 @@ public class ProfessorEntity {
     @JsonIgnoreProperties("professorAlloted")
     private List<StudentEntity> studentsAlloted;
 
+    @OneToMany(mappedBy = "professorAssigned")
+    @JsonIgnoreProperties("professorAssigned")
+    private List<SubjectEntity> subjectAssigned;
+
 
 //    @ManyToMany(cascade = CascadeType.ALL)
 //    @JoinTable(name = "student_professor_mapping",

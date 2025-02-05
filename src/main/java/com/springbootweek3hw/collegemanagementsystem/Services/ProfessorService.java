@@ -2,8 +2,11 @@ package com.springbootweek3hw.collegemanagementsystem.Services;
 
 import com.springbootweek3hw.collegemanagementsystem.Entities.ProfessorEntity;
 import com.springbootweek3hw.collegemanagementsystem.Entities.StudentEntity;
+import com.springbootweek3hw.collegemanagementsystem.Entities.SubjectEntity;
 import com.springbootweek3hw.collegemanagementsystem.Repositories.ProfessorRepository;
 import com.springbootweek3hw.collegemanagementsystem.Repositories.StudentRepository;
+import com.springbootweek3hw.collegemanagementsystem.Repositories.SubjectRepository;
+import com.springbootweek3hw.collegemanagementsystem.dto.ProfessorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,9 @@ public class ProfessorService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    private SubjectRepository subjectRepository;
 
     public Optional<ProfessorEntity> getProfessor(long professorId) {
         return professorRepository.findById(professorId);
@@ -51,5 +57,22 @@ public class ProfessorService {
 //                                    student.getProfessorAlloted().add(professor);
 //                                    return student;
 //                                }))).orElse(null);
+    }
+
+    public ProfessorEntity assignSubjectToProfessor(long professorId, long subjectId) {
+        Optional<ProfessorEntity> professorEntity = professorRepository.findById(professorId);
+        Optional<SubjectEntity> subjectEntity = subjectRepository.findById(subjectId);
+
+         return professorEntity.flatMap(
+                 professor ->(
+                         subjectEntity.map( subject ->
+                                 {
+                                        subject.setProfessorAssigned(professor);
+                                        subjectRepository.save(subject);
+
+                                        professor.getSubjectAssigned().add(subject);
+                                        return professor;
+                                 }))).orElse(null);
+
     }
 }

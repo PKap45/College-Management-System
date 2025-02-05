@@ -1,6 +1,8 @@
 package com.springbootweek3hw.collegemanagementsystem.Services;
 
+import com.springbootweek3hw.collegemanagementsystem.Entities.StudentEntity;
 import com.springbootweek3hw.collegemanagementsystem.Entities.SubjectEntity;
+import com.springbootweek3hw.collegemanagementsystem.Repositories.StudentRepository;
 import com.springbootweek3hw.collegemanagementsystem.Repositories.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,9 @@ public class SubjectService {
     @Autowired
     private SubjectRepository subjectRepository;
 
+    @Autowired
+    private StudentRepository studentRepository;
+
     public Optional<SubjectEntity> getSubjectById(long subjectId) {
         return subjectRepository.findById(subjectId);
     }
@@ -20,4 +25,5 @@ public class SubjectService {
     public SubjectEntity saveSubject(SubjectEntity subjectEntity) {
         return subjectRepository.save(subjectEntity);
     }
+
 }

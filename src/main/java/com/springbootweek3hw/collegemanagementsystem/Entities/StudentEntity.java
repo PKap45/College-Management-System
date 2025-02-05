@@ -36,4 +36,14 @@ public class StudentEntity {
     private List<ProfessorEntity> professorAlloted;
 
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="students_subject_mapping",
+    joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "subject_id")
+    )
+    @JsonIgnoreProperties("studentsAlloted")
+    private List<SubjectEntity> subjectsAlloted;
+
+
+
 }

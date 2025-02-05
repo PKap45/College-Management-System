@@ -1,6 +1,7 @@
 package com.springbootweek3hw.collegemanagementsystem.Controller;
 
 import com.springbootweek3hw.collegemanagementsystem.Entities.StudentEntity;
+import com.springbootweek3hw.collegemanagementsystem.Entities.SubjectEntity;
 import com.springbootweek3hw.collegemanagementsystem.Services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,5 +32,16 @@ public class StudentController {
     {
         return studentService.assignedAdmissionRecordToStudent(studentId,admissionRecordId);
     }
+    @PutMapping("/{studentId}/subjects/{subjectId}")
+    public SubjectEntity assignSubjectsToStudents(@PathVariable long studentId, @PathVariable long subjectId)
+    {
+        return studentService.assignSubjectsToStudents(studentId,subjectId);
+    }
+
+
+
+
+
+
 
 }
