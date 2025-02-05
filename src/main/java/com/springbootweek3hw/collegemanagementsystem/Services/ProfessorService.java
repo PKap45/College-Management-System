@@ -6,7 +6,6 @@ import com.springbootweek3hw.collegemanagementsystem.Entities.SubjectEntity;
 import com.springbootweek3hw.collegemanagementsystem.Repositories.ProfessorRepository;
 import com.springbootweek3hw.collegemanagementsystem.Repositories.StudentRepository;
 import com.springbootweek3hw.collegemanagementsystem.Repositories.SubjectRepository;
-import com.springbootweek3hw.collegemanagementsystem.dto.ProfessorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

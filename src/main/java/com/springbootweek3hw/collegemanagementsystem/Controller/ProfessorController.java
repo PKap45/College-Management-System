@@ -3,7 +3,6 @@ package com.springbootweek3hw.collegemanagementsystem.Controller;
 
 import com.springbootweek3hw.collegemanagementsystem.Entities.ProfessorEntity;
 import com.springbootweek3hw.collegemanagementsystem.Services.ProfessorService;
-import com.springbootweek3hw.collegemanagementsystem.dto.ProfessorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
